@@ -28,6 +28,12 @@
 <slot />
 
 <style>
+  @font-face {
+    font-family: "Uthmanic Hafs";
+    src: url("/UthmanicHafs1Ver18.woff2") format("woff2");
+    font-display: block;
+  }
+
   :global(*) {
     box-sizing: border-box;
   }

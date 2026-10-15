@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { surahs } from "$lib/quran";
+  import { slugifySurah, surahs } from "$lib/quran";
 
   let query = "";
   $: visibleSurahs = surahs.filter((surah) =>
-    `${surah.number} ${surah.transliteration} ${surah.name}`
+    `${surah.id} ${surah.nameSimple} ${surah.nameArabic}`
       .toLowerCase()
       .includes(query.toLowerCase()),
   );
@@ -27,7 +27,7 @@
         >Ayah 255 of 286</small
       >
     </div>
-    <a href="/surah/2">Resume <span aria-hidden="true">→</span></a>
+    <a href="/al-baqarah">Resume <span aria-hidden="true">→</span></a>
   </section>
 
   <label class="search">
@@ -42,14 +42,14 @@
     </div>
     <div class="surah-list">
       {#each visibleSurahs as surah}
-        <a class="surah" href={`/surah/${surah.number}`}>
-          <span class="number">{surah.number}</span>
+        <a class="surah" href={`/${slugifySurah(surah.nameSimple)}`}>
+          <span class="number">{surah.id}</span>
           <span class="names"
-            ><strong>{surah.transliteration}</strong><small
-              >{surah.revelation} · {surah.verses} ayahs</small
+            ><strong>{surah.nameSimple}</strong><small
+              >{surah.revelationPlace} · {surah.versesCount} ayahs</small
             ></span
           >
-          <span class="arabic">{surah.name}</span>
+          <span class="arabic">{surah.nameArabic}</span>
         </a>
       {:else}
         <p class="empty">No saved surah matches “{query}”.</p>
