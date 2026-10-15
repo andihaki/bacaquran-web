@@ -14,4 +14,3 @@ pnpm dev
 - `static/sw.js` caches the application shell and all visited same-origin pages/assets.
 - Put a versioned Quran JSON dataset in `static/data/` and pre-cache it in `APP_SHELL` when content is ready for production.
 - Bump `CACHE_NAME` whenever app-shell or bundled Quran data changes.
-- The included manifest makes the site installable; add 192px and 512px PNG icons before release.
