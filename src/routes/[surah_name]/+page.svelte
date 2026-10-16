@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
   import { surahs, type MushafPage, type Surah } from "$lib/quran";
   let { data }: { data: { surah: Surah; pages: MushafPage[] } } = $props();
 </script>
@@ -6,7 +7,7 @@
 <svelte:head><title>{data.surah.nameSimple} · Baca Quran</title></svelte:head>
 
 <main>
-  <a class="back" href="/">← All surahs</a>
+  <a class="back" href={resolve("/")}>← All surahs</a>
   <header>
     <p>{data.surah.id}</p>
     <h1 lang="ar" dir="rtl">{data.surah.nameArabic}</h1>

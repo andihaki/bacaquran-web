@@ -2,7 +2,7 @@
   "name": "Baca Quran",
   "short_name": "Baca Quran",
   "description": "An offline-first digital Quran reader.",
-  "start_url": "/",
+  "start_url": "/quran",
   "display": "standalone",
   "background_color": "#f8f6ef",
   "theme_color": "#0b4f43",

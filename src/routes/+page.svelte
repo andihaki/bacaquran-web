@@ -1,5 +1,6 @@
 <script lang="ts">
   import { slugifySurah, surahs } from "$lib/quran";
+  import { resolve } from "$app/paths";
 
   let query = "";
   $: visibleSurahs = surahs.filter((surah) =>
@@ -27,7 +28,8 @@
         >Ayah 255 of 286</small
       >
     </div>
-    <a href="/al-baqarah">Resume <span aria-hidden="true">→</span></a>
+    <a href={resolve("/al-baqarah")}>Resume <span aria-hidden="true">→</span></a
+    >
   </section>
 
   <label class="search">
@@ -42,7 +44,7 @@
     </div>
     <div class="surah-list">
       {#each visibleSurahs as surah}
-        <a class="surah" href={`/${slugifySurah(surah.nameSimple)}`}>
+        <a class="surah" href={resolve(`/${slugifySurah(surah.nameSimple)}`)}>
           <span class="number">{surah.id}</span>
           <span class="names"
             ><strong>{surah.nameSimple}</strong><small
