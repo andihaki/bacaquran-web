@@ -8,6 +8,11 @@
       .toLowerCase()
       .includes(query.toLowerCase()),
   );
+
+  export function entries() {
+    return Array.from({ length: 114 }, (_, i) => ({ surah: String(i + 1) }));
+  }
+  export const prerender = true;
 </script>
 
 <svelte:head><title>Baca Quran</title></svelte:head>
