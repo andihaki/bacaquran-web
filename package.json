@@ -9,6 +9,7 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "deploy": "vite build && wrangler deploy",
+    "deploy:cloudflare": "vite build && wrangler deploy",
     "preview-wrangler": "vite build && wrangler dev",
     "cf-typegen": "wrangler types"
   },

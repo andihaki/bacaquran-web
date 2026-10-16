@@ -13,13 +13,24 @@ pnpm dev
 
 ```sh
 pnpm install
-pnpm run deploy
+pnpm run deploy:cloudflare
 ```
 
 Requires Node.js 22.12 or newer. Authenticate with Cloudflare first using
-`pnpm exec wrangler login`. `pnpm run deploy` builds the app with the
-Cloudflare adapter and deploys it with Wrangler. Run
+`pnpm exec wrangler login`. `pnpm run deploy:cloudflare` builds the app with
+the Cloudflare adapter and deploys it with Wrangler. Run
 `pnpm run preview-wrangler` to test the production build locally.
+
+If deploying via Cloudflare Pages / CI, ensure the build command is set to
+`pnpm run deploy:cloudflare` (or `pnpm run deploy`) — do NOT use the plain
+`pnpm deploy` command. pnpm has a built-in `deploy` command for workspaces and
+running `pnpm deploy` (without `run`) can cause the error:
+
+  ERROR  packages field missing or empty
+
+which comes from pnpm expecting a workspace `packages` configuration. Using
+`pnpm run deploy:cloudflare` will invoke the package script instead of pnpm's
+builtin command.
 
 ## Offline architecture
 
