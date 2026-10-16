@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { asset } from "$app/paths";
   import { onMount } from "svelte";
 
   let online = true;
@@ -9,8 +10,9 @@
     window.addEventListener("online", updateStatus);
     window.addEventListener("offline", updateStatus);
 
-    if ("serviceWorker" in navigator)
-      navigator.serviceWorker.register("/sw.js");
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register(asset("/sw.js"), { scope: "/quran/" });
+    }
 
     return () => {
       window.removeEventListener("online", updateStatus);
