@@ -26,4 +26,6 @@ symlink-from
 _tmp_flaky_test_output.txt
 
 .coverage/
-.wrangler/
+.wrangler
+.dev.vars*
+!.dev.vars.example

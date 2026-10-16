@@ -9,6 +9,18 @@ pnpm install
 pnpm dev
 ```
 
+## Deploy to Cloudflare Workers
+
+```sh
+pnpm install
+pnpm run deploy
+```
+
+Requires Node.js 22.12 or newer. Authenticate with Cloudflare first using
+`pnpm exec wrangler login`. `pnpm run deploy` builds the app with the
+Cloudflare adapter and deploys it with Wrangler. Run
+`pnpm run preview-wrangler` to test the production build locally.
+
 ## Offline architecture
 
 - `static/sw.js` caches the application shell and all visited same-origin pages/assets.
