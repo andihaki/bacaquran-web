@@ -1,5 +1,6 @@
-const CACHE_NAME = "baca-quran-v1";
-const APP_SHELL = ["/", "/manifest.webmanifest"];
+const CACHE_NAME = "baca-quran-v2"; // bump so old caches are deleted
+const SCOPE = self.registration.scope; // e.g. https://kodebaik.com/quran/
+const APP_SHELL = [SCOPE, new URL("manifest.webmanifest", SCOPE).href];
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
